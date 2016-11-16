@@ -3,6 +3,7 @@ package com.restaurants.restcontroller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -37,5 +38,15 @@ public class RestaurantResController {
 	public Restaurant getRestaurants(@PathVariable String restName) {
 		return service.find(restName);
 	}
+
+	@RequestMapping(value = "/findNearestRestaurant/{latitude}/and/{longitude}/", method = RequestMethod.GET, produces = "application/json")
+	public List<Restaurant> findNearestRestaurant(
+			@PathVariable("latitude") String latitude,
+			@PathVariable("longitude") String longitude) {
+
+		return service.findNearestRestaurant(latitude, longitude);
+	}
+	
+ 
 
 }

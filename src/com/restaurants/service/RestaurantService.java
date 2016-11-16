@@ -11,7 +11,10 @@ public interface RestaurantService {
 	public void delete(Restaurant restaurant);
 
 	public List<Restaurant> findAll();
-	
+
 	public Restaurant find(String restName);
+
+	public List<Restaurant> findNearestRestaurant(String latitude,
+			String longitude);
 
 }

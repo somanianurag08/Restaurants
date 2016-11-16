@@ -40,4 +40,11 @@ public class RestaurantServiceImpl implements RestaurantService {
 		return repository.findByRestaurantName(restName);
 	}
 
+	@Override
+	public List<Restaurant> findNearestRestaurant(String latitude,
+			String longitude) {
+		
+		return repository.findNearestRestaurant(latitude, longitude);
+	}
+
 }
